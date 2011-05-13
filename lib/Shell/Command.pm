@@ -26,7 +26,11 @@ sub rm_rf(*@files) is export {
 }
 
 sub touch(*@files) is export {
-    ???
+    for @files -> $name {
+	my $t = time;
+        my $file = open $name, :a;
+        $file.close;
+    }
 }
 
 sub mv(*@args) is export {
